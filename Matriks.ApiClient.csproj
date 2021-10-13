@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A629B0EA-7A6D-4482-938B-6B73242723B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Matriks.ApiClient</RootNamespace>
+    <AssemblyName>Matriks.ApiClient</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MatriksIQ\packages\MessagePack\lib\net47\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\ClientApiAppDemo\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\AccountDetailApi.cs" />
+    <Compile Include="Api\ApiCommands.cs" />
+    <Compile Include="Api\ApiRequest.cs" />
+    <Compile Include="Api\Packet.cs" />
+    <Compile Include="Api\RequestModels\KeepAlive.cs" />
+    <Compile Include="Api\RequestModels\ListOrdersApiModel.cs" />
+    <Compile Include="Api\RequestModels\ListPositionsApiModel.cs" />
+    <Compile Include="Api\RequestModels\LoginRequest.cs" />
+    <Compile Include="Api\RequestModels\OrderRequest.cs" />
+    <Compile Include="Api\ResposeModels\AccountExchangeModel.cs" />
+    <Compile Include="Api\ResposeModels\BrokerAccounts.cs" />
+    <Compile Include="Api\ResposeModels\ListAccountsPacket.cs" />
+    <Compile Include="Api\ResposeModels\ListOrdersApiResponseModel.cs" />
+    <Compile Include="Api\ResposeModels\ListPositionResponseModel.cs" />
+    <Compile Include="Api\ResposeModels\OrderApiModel.cs" />
+    <Compile Include="Api\ResposeModels\PositionResponseModel.cs" />
+    <Compile Include="Api\ResposeModels\TradeUserLoginModel.cs" />
+    <Compile Include="Api\ResposeModels\TradeUserLogoutModel.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Commands\KeepAliveCommand.cs" />
+    <Compile Include="Commands\ListAccountsResponseCommand.cs" />
+    <Compile Include="Commands\ListOrdersResponseCommand.cs" />
+    <Compile Include="Commands\ListPositionsResponseCommand.cs" />
+    <Compile Include="Commands\OrderChangedResponseCommand.cs" />
+    <Compile Include="Commands\PositionChangedResponseCommand.cs" />
+    <Compile Include="Commands\TradeUserLoginCommand.cs" />
+    <Compile Include="Commands\TradeUserLogoutCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiCommand.cs" />
+    <Compile Include="Services\ApiCommandFactory.cs" />
+    <Compile Include="Services\ApiPackageService.cs" />
+    <Compile Include="Services\CRC16.cs" />
+    <Compile Include="Services\IApiPackageService.cs" />
+    <Compile Include="Services\IPacketRouter.cs" />
+    <Compile Include="Services\PacketRouter.cs" />
+    <Compile Include="Services\TCPClient.cs" />
+    <Compile Include="TcpCallbackService.cs" />
+    <Compile Include="TcpClientService.cs" />
+    <Compile Include="TcpConnection\OnDataInEventArgs.cs" />
+    <Compile Include="TcpConnection\TcpConnectionService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.7.2'" />
+  </Choose>
+</Project>
