@@ -36,6 +36,7 @@ x64/
 *.tmp
 *.tmp_proj
 *.log
+*.vs
 *.vspscc
 *.vssscc
 .builds
