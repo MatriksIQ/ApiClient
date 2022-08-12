@@ -10,12 +10,13 @@
     <Deterministic>false</Deterministic>
 	<SatelliteResourceLanguages>en;tr</SatelliteResourceLanguages>
 	<RootNamespace>Matriks.ApiClient</RootNamespace>
-    <AssemblyName>Matriks.ApiClient</AssemblyName>
+    <AssemblyName>MatriksIQ.ApiClient</AssemblyName>
 	<Company>Matriks</Company>
 	<FileVersion>1.0.0.3</FileVersion>
 	 <Version>1.0.0.3</Version>
 	<AssemblyVersion>1.0.0.3</AssemblyVersion>
 	<AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
+	<RepositoryUrl>https://github.com/MatriksIQ/ApiClient</RepositoryUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
