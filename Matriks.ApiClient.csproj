@@ -55,12 +55,14 @@
     <Compile Include="Api\ApiCommands.cs" />
     <Compile Include="Api\ApiRequest.cs" />
     <Compile Include="Api\Packet.cs" />
+    <Compile Include="Api\RequestModels\AccountInformationRequest.cs" />
     <Compile Include="Api\RequestModels\KeepAlive.cs" />
     <Compile Include="Api\RequestModels\ListOrdersApiModel.cs" />
     <Compile Include="Api\RequestModels\ListPositionsApiModel.cs" />
     <Compile Include="Api\RequestModels\LoginRequest.cs" />
     <Compile Include="Api\RequestModels\OrderRequest.cs" />
     <Compile Include="Api\ResposeModels\AccountExchangeModel.cs" />
+    <Compile Include="Api\ResposeModels\AccountInformationResponseModel.cs" />
     <Compile Include="Api\ResposeModels\BrokerAccounts.cs" />
     <Compile Include="Api\ResposeModels\ListAccountsPacket.cs" />
     <Compile Include="Api\ResposeModels\ListOrdersApiResponseModel.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Api\ResposeModels\TradeUserLoginModel.cs" />
     <Compile Include="Api\ResposeModels\TradeUserLogoutModel.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Commands\GetAccountInformationResponseCommand.cs" />
     <Compile Include="Commands\KeepAliveCommand.cs" />
     <Compile Include="Commands\ListAccountsResponseCommand.cs" />
     <Compile Include="Commands\ListOrdersResponseCommand.cs" />

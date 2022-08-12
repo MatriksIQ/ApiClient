@@ -7,6 +7,7 @@ using System.Windows;
 using Matriks.Api;
 using Matriks.Api.RequestModels;
 using Matriks.API.Shared;
+using Matriks.ApiClient.Api.RequestModels;
 using Matriks.ApiClient.Services;
 using Matriks.ApiClient.TcpConnection;
 using Newtonsoft.Json;
@@ -118,6 +119,15 @@ namespace Matriks.ApiClient
             //var jsonText = JsonConvert.SerializeObject(orderRequest);
 
             var objectToSend = _apiPackageService.Serialize(orderRequest);
+            SendToServer(objectToSend);
+        }
+
+        public void SendAccountInformationRequest(AccountInformationRequest request)
+        {
+            request.ApiCommands = (int)ApiCommands.GetAccountInformation;
+            //var jsonText = JsonConvert.SerializeObject(orderRequest);
+
+            var objectToSend = _apiPackageService.Serialize(request);
             SendToServer(objectToSend);
         }
 

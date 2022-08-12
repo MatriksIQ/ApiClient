@@ -7,6 +7,7 @@ using Matriks.Api;
 using Matriks.Api.RequestModels;
 using Matriks.Api.ResposeModels;
 using Matriks.API.Shared;
+using Matriks.ApiClient.Api.ResposeModels;
 
 namespace Matriks.ApiClient
 {
@@ -27,6 +28,7 @@ namespace Matriks.ApiClient
         public event EventHandler<TradeUserLogoutModel> TraderUserLogoutEvent;
 
         public event EventHandler<KeepAlive> KeepAliveResponseEvent;
+        public event EventHandler<AccountInformationResponseModel> GetAccountInformationResponseEvent;
 
         public void KeepAliveResponse(KeepAlive keepAlive)
         {
@@ -78,6 +80,11 @@ namespace Matriks.ApiClient
         public void TradeUserLoggedOut(TradeUserLogoutModel tradeUserLogoutModel)
         {
             if (TraderUserLogoutEvent != null) TraderUserLogoutEvent(this, tradeUserLogoutModel);
+        }
+
+        public void GetAccountInformationRecevied(AccountInformationResponseModel accountInformationResponseModel)
+        {
+            if (GetAccountInformationResponseEvent != null) GetAccountInformationResponseEvent(this, accountInformationResponseModel);
         }
 
         public void Connect(string ip, int port)

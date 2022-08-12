@@ -27,7 +27,8 @@ namespace Matriks.ApiClient.Services
                 {ClientCommands.PositionChangedResponse ,() => new PositionChangedResponseCommand(_tcpCallbackService,apiPackageService)},
                 {ClientCommands.TradeUserLogin ,() => new TradeUserLoginCommand(_tcpCallbackService,apiPackageService)},
                 {ClientCommands.TradeUserLogout ,() => new OrderChangedResponseCommand(_tcpCallbackService,apiPackageService)},
-                {ClientCommands.KeepAlive, ()=> new KeepAliveCommand(apiPackageService,_tcpCallbackService) }
+                {ClientCommands.KeepAlive, ()=> new KeepAliveCommand(apiPackageService,_tcpCallbackService) },
+                {ClientCommands.GetAccountInformationResponse, ()=> new GetAccountInformationResponseCommand(_tcpCallbackService,apiPackageService) }
             };
 
             

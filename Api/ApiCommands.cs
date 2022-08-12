@@ -14,7 +14,8 @@ namespace Matriks.Api
         NewOrder,
         CancelOrder,
         EditOrder,
-        KeepAlive
+        KeepAlive,
+        GetAccountInformation
     }
 
     public enum ClientCommands
@@ -26,7 +27,8 @@ namespace Matriks.Api
         PositionChangedResponse,
         TradeUserLogin,
         TradeUserLogout,
-        KeepAlive
+        KeepAlive,
+        GetAccountInformationResponse
     }
 
     public enum DataType
