@@ -6,17 +6,19 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <OutputPath>$(SolutionDir)$(Configuration)</OutputPath>
 	<ProjectGuid>{A629B0EA-7A6D-4482-938B-6B73242723B7}</ProjectGuid>
-    <Copyright>Copyright ©  Matriks Bilgi Dağıtım Hizmetleri A.Ş. 2021</Copyright>
+    <Copyright>Copyright ©  Matriks Bilgi Dağıtım Hizmetleri A.Ş. 2022</Copyright>
     <Deterministic>false</Deterministic>
 	<SatelliteResourceLanguages>en;tr</SatelliteResourceLanguages>
 	<RootNamespace>Matriks.ApiClient</RootNamespace>
     <AssemblyName>MatriksIQ.ApiClient</AssemblyName>
 	<Company>Matriks</Company>
-	<FileVersion>1.0.0.3</FileVersion>
-	 <Version>1.0.0.3</Version>
-	<AssemblyVersion>1.0.0.3</AssemblyVersion>
-	<AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
+	<FileVersion>1.0.0.10</FileVersion>
+	 <Version>1.0.0.10</Version>
+	<AssemblyVersion>1.0.0.10</AssemblyVersion>
 	<RepositoryUrl>https://github.com/MatriksIQ/ApiClient</RepositoryUrl>
+	 <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	 <Title>MatriksIQ Api Client</Title>
+	 <Description>https://github.com/MatriksIQ/ApiClient</Description>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -25,9 +27,6 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DefineConstants />
-    <FileVersion>1.0.0.3</FileVersion>
-    <Version>1.0.0.3</Version>
-    <AssemblyVersion>1.0.0.3</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework" />

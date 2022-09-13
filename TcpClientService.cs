@@ -131,6 +131,31 @@ namespace Matriks.ApiClient
             SendToServer(objectToSend);
         }
 
+        public void RequestFilledOrders(string accountId,string brokageId,int exchangeId)
+        {
+            ListFilledOrdersApiRequest packet = new ListFilledOrdersApiRequest();
+            packet.ApiCommands = (int)ApiCommands.ListFilledOrders;
+            packet.AccountId = accountId;
+            packet.BrokageId = brokageId;
+            packet.ExchangeId = exchangeId;
+            var seriealizePacket = _apiPackageService.Serialize(packet);
+
+            //var jsonText = CreateRequestPacket(packet);
+            _tcpConnectionService.SendToServer(seriealizePacket,_apiPackageService.DataType);
+        }
+
+        public void RequestCanceledOrders(string accountId,string brokageId,int exchangeId)
+        {
+            ListCanceledOrdersApiRequest packet = new ListCanceledOrdersApiRequest();
+            packet.ApiCommands = (int)ApiCommands.ListCanceledOrders;
+            packet.AccountId = accountId;
+            packet.BrokageId = brokageId;
+            packet.ExchangeId = exchangeId;
+            var seriealizePacket = _apiPackageService.Serialize(packet);
+
+            //var jsonText = CreateRequestPacket(packet);
+            _tcpConnectionService.SendToServer(seriealizePacket,_apiPackageService.DataType);
+        }
 
         public void SendKeepAlive()
         {
@@ -140,6 +165,7 @@ namespace Matriks.ApiClient
             var objectToSend = _apiPackageService.Serialize(keepAlive);
             SendToServer(objectToSend);
         }
+
         public object CreateRequestPacket(Packet pack)
         {
             var apiCommands = (ApiCommands)pack.ApiCommands;

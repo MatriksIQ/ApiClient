@@ -18,6 +18,10 @@ namespace Matriks.ApiClient
         public event EventHandler<ListPositionResponseModel> ListPositionsResponseEvent;
 
         public event EventHandler<ListOrdersApiResponseModel> ListOrdersResponseEvent;
+		
+        public event EventHandler<ListFilledOrdersApiResponseModel> ListFilledOrdersResponseEvent;
+		
+        public event EventHandler<ListCanceledOrdersApiResponseModel> ListCanceledOrdersResponseEvent;
 
         public event EventHandler<OrderRequest> OrderChangedEvent;
 
@@ -46,6 +50,24 @@ namespace Matriks.ApiClient
             if (handler != null)
             {
                 handler(this, listOrdersApiResponseModel);
+            }
+        }
+
+        public void ListFilledOrdersResponse(ListFilledOrdersApiResponseModel listFilledOrdersApiResponseModel)
+        {
+            var handler = ListFilledOrdersResponseEvent;
+            if (handler != null)
+            {
+                handler(this, listFilledOrdersApiResponseModel);
+            }
+        }
+
+        public void ListCanceledOrdersResponse(ListCanceledOrdersApiResponseModel listCanceledOrdersApiResponseModel)
+        {
+            var handler = ListCanceledOrdersResponseEvent;
+            if (handler != null)
+            {
+                handler(this, listCanceledOrdersApiResponseModel);
             }
         }
 
