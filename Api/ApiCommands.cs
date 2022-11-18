@@ -18,6 +18,8 @@ namespace Matriks.Api
         GetAccountInformation,
         ListFilledOrders,
         ListCanceledOrders,
+        ChangeLoggingMode,
+        ChangeBroadcastMode
     }
 
     public enum ClientCommands
@@ -33,6 +35,8 @@ namespace Matriks.Api
         GetAccountInformationResponse,
         ListFilledOrdersResponse,
         ListCanceledOrdersResponse,
+        ChangeLoggingModeResponse,
+        ChangeBroadcastModeResponse,
     }
 
     public enum DataType

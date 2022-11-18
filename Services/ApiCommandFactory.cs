@@ -30,10 +30,10 @@ namespace Matriks.ApiClient.Services
                 {ClientCommands.KeepAlive, ()=> new KeepAliveCommand(apiPackageService,_tcpCallbackService) },
                 {ClientCommands.GetAccountInformationResponse, ()=> new GetAccountInformationResponseCommand(_tcpCallbackService,apiPackageService) },
                 {ClientCommands.ListFilledOrdersResponse, ()=> new ListFilledOrdersResponseCommand(_tcpCallbackService,apiPackageService) },
-                {ClientCommands.ListCanceledOrdersResponse, ()=> new ListCanceledOrdersResponseCommand(_tcpCallbackService,apiPackageService) }
+                {ClientCommands.ListCanceledOrdersResponse, ()=> new ListCanceledOrdersResponseCommand(_tcpCallbackService,apiPackageService) },
+                {ClientCommands.ChangeLoggingModeResponse, ()=> new ChangeLoggingModeResponseCommand(_tcpCallbackService,apiPackageService) },
+                {ClientCommands.ChangeBroadcastModeResponse, ()=> new ChangeBroadcastModeResponseCommand(_tcpCallbackService,apiPackageService) }
             };
-
-            
         }
 
         public ApiCommand GetCommand(Packet packet)

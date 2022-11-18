@@ -32,7 +32,12 @@ namespace Matriks.ApiClient
         public event EventHandler<TradeUserLogoutModel> TraderUserLogoutEvent;
 
         public event EventHandler<KeepAlive> KeepAliveResponseEvent;
+
         public event EventHandler<AccountInformationResponseModel> GetAccountInformationResponseEvent;
+
+        public event EventHandler<ChangeLoggingModeResponseModel> ChangeLoggingModeResponseEvent;
+
+        public event EventHandler<ChangeBroadcastModeResponseModel> ChangeBroadcastModeResponseEvent;
 
         public void KeepAliveResponse(KeepAlive keepAlive)
         {
@@ -107,6 +112,14 @@ namespace Matriks.ApiClient
         public void GetAccountInformationRecevied(AccountInformationResponseModel accountInformationResponseModel)
         {
             if (GetAccountInformationResponseEvent != null) GetAccountInformationResponseEvent(this, accountInformationResponseModel);
+        }
+        public void ChangeLoggingModeResponse(ChangeLoggingModeResponseModel changeLoggingModeResponseModel)
+        {
+            if (ChangeLoggingModeResponseEvent != null) ChangeLoggingModeResponseEvent(this, changeLoggingModeResponseModel);
+        }
+        public void ChangeBroadcastModeResponse(ChangeBroadcastModeResponseModel changeBroadcastModeResponseModel)
+        {
+            if (ChangeBroadcastModeResponseEvent != null) ChangeBroadcastModeResponseEvent(this, changeBroadcastModeResponseModel);
         }
 
         public void Connect(string ip, int port)

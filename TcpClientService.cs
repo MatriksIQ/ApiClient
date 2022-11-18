@@ -7,6 +7,7 @@ using System.Windows;
 using Matriks.Api;
 using Matriks.Api.RequestModels;
 using Matriks.API.Shared;
+using Matriks.ApiClient.Api;
 using Matriks.ApiClient.Api.RequestModels;
 using Matriks.ApiClient.Services;
 using Matriks.ApiClient.TcpConnection;
@@ -19,14 +20,18 @@ namespace Matriks.ApiClient
         private TcpConnectionService _tcpConnectionService;
         private TcpCallbackService _tcpCallbackService;
         private ApiPackageService _apiPackageService;
+        private ApiLoggingMode _apiLoggingMode;
+        private ApiBroadcastMode _apiBroadcastMode;
         private string Ip { get; set; }
         private  int Port { get; set; }
-        public TcpClientService(TcpCallbackService tcpCallbackService,string ip, int port)
+        public TcpClientService(TcpCallbackService tcpCallbackService,string ip, int port, ApiLoggingMode apiLoggingMode = ApiLoggingMode.All, ApiBroadcastMode apiBroadcastMode = ApiBroadcastMode.All)
         {
             _tcpCallbackService = tcpCallbackService;
             _apiPackageService = new ApiPackageService();
             this.Ip = ip;
             this.Port = port;
+            _apiLoggingMode = apiLoggingMode;
+            _apiBroadcastMode = apiBroadcastMode;
         }
 
 
@@ -50,6 +55,8 @@ namespace Matriks.ApiClient
             try
             {
                 SetMessageType(DataType.Json);
+                ChangeLoggingMode(_apiLoggingMode);
+                ChangeBroadcastMode(_apiBroadcastMode);
                 RequestAccounts();
             }
             catch (Exception exception)
@@ -154,6 +161,23 @@ namespace Matriks.ApiClient
             var seriealizePacket = _apiPackageService.Serialize(packet);
 
             //var jsonText = CreateRequestPacket(packet);
+            _tcpConnectionService.SendToServer(seriealizePacket,_apiPackageService.DataType);
+        }
+
+        public void ChangeLoggingMode(ApiLoggingMode loggingMode)
+        {
+            _apiLoggingMode = loggingMode;
+            ChangeLoggingModeRequest packet = new ChangeLoggingModeRequest((int)loggingMode);
+            packet.ApiCommands = (int)ApiCommands.ChangeLoggingMode;
+            var seriealizePacket = _apiPackageService.Serialize(packet);
+            _tcpConnectionService.SendToServer(seriealizePacket,_apiPackageService.DataType);
+        }
+        public void ChangeBroadcastMode(ApiBroadcastMode broadcastMode)
+        {
+            _apiBroadcastMode = broadcastMode;
+            ChangeBroadcastModeRequest packet = new ChangeBroadcastModeRequest((int)broadcastMode);
+            packet.ApiCommands = (int)ApiCommands.ChangeBroadcastMode;
+            var seriealizePacket = _apiPackageService.Serialize(packet);
             _tcpConnectionService.SendToServer(seriealizePacket,_apiPackageService.DataType);
         }
 
