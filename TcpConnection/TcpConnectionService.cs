@@ -98,8 +98,7 @@ namespace Matriks.ApiClient.TcpConnection
             {
                 if (_dataType == DataType.Json)
                 {
-                    byte[] bytes = Encoding.Default.GetBytes(e.Text);
-                    var encoded = Encoding.UTF8.GetString(bytes);
+                    var encoded = e.Text;
                     _stringBuilder.Append(encoded);
                     if (!encoded.EndsWith(UnicodeToUtf8(((char)11).ToString())))
                     {

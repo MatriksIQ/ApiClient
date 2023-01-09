@@ -34,9 +34,7 @@ namespace Matriks.ApiClient.Services
                     var jsonToSend = JsonConvert.SerializeObject(obj);
                     StringBuilder stringBuilder = new StringBuilder(jsonToSend);
                     stringBuilder.Append((char)11);
-                    byte[] bytes = Encoding.Default.GetBytes(stringBuilder.ToString());
-                    var encoded = Encoding.UTF8.GetString(bytes);
-                    return encoded;
+                    return stringBuilder.ToString();
                 case DataType.MessagePack:
                     var payload = MessagePackSerializer.Serialize(obj, ContractlessStandardResolver.Instance);
                     
