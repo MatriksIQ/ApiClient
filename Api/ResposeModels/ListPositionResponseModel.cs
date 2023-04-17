@@ -10,6 +10,9 @@ namespace Matriks.Api.ResposeModels
     [Serializable]
     public class ListPositionResponseModel :Packet
     {
+		public string BrokageId { get; set; }
+        public string AccountId { get; set; }
+        public int ExchangeId { get; set; }
         public List<PositionResponseModel> PositionResponseList { get; set; }
     }
 }
