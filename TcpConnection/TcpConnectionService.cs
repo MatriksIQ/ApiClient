@@ -84,12 +84,12 @@ namespace Matriks.ApiClient.TcpConnection
 
         private void IpClientOnOnConnectionStatus(object sender, bool e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void IpClientOnOnDisconnected(object sender, bool e)
         {
-            throw new NotImplementedException();
+
         }
 
         private void IpClientOnOnDataIn(object sender, OnDataInEventArgs e)
@@ -137,11 +137,6 @@ namespace Matriks.ApiClient.TcpConnection
                 ConnectedEvent(true);
         }
 
-
-        private void ipClient_OnDisconnected(object sender, OnDataInEventArgs e)
-        {
-            Console.WriteLine("Disconnected");
-        }
         static string UnicodeToUtf8(string from)
         {
             var bytes = Encoding.UTF8.GetBytes(from);
@@ -168,8 +163,7 @@ namespace Matriks.ApiClient.TcpConnection
                         return;
                     var payload = br.ReadBytes(packetSize);
                     br.ReadInt16();
-                    Console.WriteLine(MessagePackSerializer.ToJson(payload));
-                    var packet = MessagePack.MessagePackSerializer.Deserialize<Packet>(payload, ContractlessStandardResolver.Instance);
+                    var packet = MessagePack.MessagePackSerializer.Deserialize<Packet>(payload, ContractlessStandardResolver.Options);
                     packet.Payload = payload;
                     _packetRouter.Compute(packet);
                     var leftOverBytes = _memoryStream.ToArray().Skip(2 + 4 + 2 + packetSize).ToArray();
@@ -231,7 +225,7 @@ namespace Matriks.ApiClient.TcpConnection
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.StackTrace);
+
             }
             return isOk;
         }

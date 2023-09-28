@@ -69,10 +69,6 @@ public class TcpClient
                             var str1 = encoding.GetString(incommingData);
 							OnDataIn(this, new OnDataInEventArgs(incommingData, str1));
                         }
-						
-						//string serverMessage = Encoding.Default.GetString(incommingData);
-						//Console.WriteLine("server message received as: " + serverMessage);
-
 					}
 				}
 			}
@@ -80,7 +76,6 @@ public class TcpClient
 		catch (SocketException socketException)
         {
             Connected = false;
-			Console.WriteLine("Socket exception: " + socketException);
 		}
 	}
 
@@ -116,32 +111,6 @@ public class TcpClient
 		}
 		catch (SocketException socketException)
 		{
-            Console.WriteLine("Socket exception: " + socketException);
 		}
 	}
-
-	//public void SendMessageBytes(byte[] bytesToSend)
-	//{
-	//	if (socketConnection == null)
-	//	{
-	//		return;
-	//	}
-	//	try
-	//	{
-	//		// Get a stream object for writing. 			
-	//		NetworkStream stream = socketConnection.GetStream();
-	//		if (stream.CanWrite)
-	//		{
-	//			// Convert string message to byte array.                 
-	//			// Write byte array to socketConnection stream.                 
-	//			stream.Write(bytesToSend, 0, bytesToSend.Length);
-	//		}
-	//	}
-	//	catch (SocketException socketException)
-	//	{
-	//		Console.WriteLine("Socket exception: " + socketException);
-	//	}
-	//}
-
-    
 }

@@ -30,7 +30,6 @@ namespace Matriks.ApiClient.Services
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
             }
         }
 

@@ -36,7 +36,7 @@ namespace Matriks.ApiClient.Services
                     stringBuilder.Append((char)11);
                     return stringBuilder.ToString();
                 case DataType.MessagePack:
-                    var payload = MessagePackSerializer.Serialize(obj, ContractlessStandardResolver.Instance);
+                    var payload = MessagePackSerializer.Serialize(obj, ContractlessStandardResolver.Options);
                     
                     var syncCode = new byte[2]{Sync1,Sync2};
                     var packetSize = BitConverter.GetBytes(payload.Length);
@@ -59,7 +59,7 @@ namespace Matriks.ApiClient.Services
                     return packet;
                 case DataType.MessagePack:
                     var bytePacket = data.Payload as byte[];
-                    return MessagePack.MessagePackSerializer.Deserialize<T>(bytePacket, ContractlessStandardResolver.Instance);
+                    return MessagePack.MessagePackSerializer.Deserialize<T>(bytePacket, ContractlessStandardResolver.Options);
 
 
                 default:

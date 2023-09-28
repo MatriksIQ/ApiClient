@@ -1,47 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
- <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <TargetFramework>net472</TargetFramework>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <OutputPath>$(SolutionDir)$(Configuration)</OutputPath>
-	<ProjectGuid>{A629B0EA-7A6D-4482-938B-6B73242723B7}</ProjectGuid>
-    <Copyright>Copyright ©  Matriks Bilgi Dağıtım Hizmetleri A.Ş. 2022</Copyright>
-    <Deterministic>false</Deterministic>
-	<SatelliteResourceLanguages>en;tr</SatelliteResourceLanguages>
-	<RootNamespace>Matriks.ApiClient</RootNamespace>
-    <AssemblyName>MatriksIQ.ApiClient</AssemblyName>
-	<Company>Matriks</Company>
-	<FileVersion>1.0.0.10</FileVersion>
-	 <Version>1.0.0.10</Version>
-	<AssemblyVersion>1.0.0.10</AssemblyVersion>
-	<RepositoryUrl>https://github.com/MatriksIQ/ApiClient</RepositoryUrl>
-	 <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	 <Title>MatriksIQ Api Client</Title>
-	 <Description>https://github.com/MatriksIQ/ApiClient</Description>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DefineConstants />
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
- <ItemGroup>
-    <PackageReference Include="MessagePack" Version="1.7.3.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.0.0" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.1.0.0" />
-  </ItemGroup>
+	<PropertyGroup>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<TargetFrameworks>net7.0;net6.0;net5.0;netstandard2.0;net472</TargetFrameworks>
+		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+		<OutputPath>$(SolutionDir)$(Configuration)</OutputPath>
+		<ProjectGuid>{A629B0EA-7A6D-4482-938B-6B73242723B7}</ProjectGuid>
+		<Copyright>Copyright ©  Matriks Bilgi Dağıtım Hizmetleri A.Ş. 2022</Copyright>
+		<Deterministic>false</Deterministic>
+		<SatelliteResourceLanguages>en;tr</SatelliteResourceLanguages>
+		<RootNamespace>Matriks.ApiClient</RootNamespace>
+		<AssemblyName>MatriksIQ.ApiClient</AssemblyName>
+		<Company>Matriks</Company>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<FileVersion>1.0.0.4</FileVersion>
+		<Version>1.0.0.4</Version>
+		<AssemblyVersion>1.0.0.4</AssemblyVersion>
+		<RepositoryUrl>https://github.com/MatriksIQ/ApiClient</RepositoryUrl>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>MatriksIQ Api Client</Title>
+		<Description>https://github.com/MatriksIQ/ApiClient</Description>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugType>full</DebugType>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>pdbonly</DebugType>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<DefineConstants />
+	</PropertyGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472'">
+		<Reference Include="PresentationFramework" />
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Xml" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<PackageReference Include="MessagePack" Version="2.3.85" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+	</ItemGroup>
 </Project>
