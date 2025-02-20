@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<TargetFrameworks>net7.0;net6.0;net5.0;netstandard2.0;net472</TargetFrameworks>
+		<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net5.0;netstandard2.0;net472</TargetFrameworks>
 		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
 		<OutputPath>$(SolutionDir)$(Configuration)</OutputPath>
 		<ProjectGuid>{A629B0EA-7A6D-4482-938B-6B73242723B7}</ProjectGuid>
